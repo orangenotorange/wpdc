@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+/* This container holds the blobs and applies the blur effect */
+.blob-container {
+  position: fixed;
+  /* Make the container larger than the viewport to hide the blurry edges */
+  top: -50px;
+  left: -50px;
+  width: calc(100vw + 100px);
+  height: calc(100vh + 100px);
+  overflow: hidden;
+  z-index: -1; /* Ensures it's behind all other content */
+  filter: blur(20px) contrast(1.2); /* The blur creates the soft, merged look. */
+  background-color: #0f172a; /* Fallback background color (a dark slate blue) */
+}
+
+.blob {
+  position: absolute;
+  opacity: 0.7;
+  /* mix-blend-mode can create interesting color interactions when blobs overlap */
+  mix-blend-mode: screen;
+}
+
+/*
+  Define several blobs with unique sizes, starting positions, colors, and animation properties.
+  The variation is key to a natural, non-repetitive look.
+  Using viewport units (vmax) for size helps with responsiveness.
+*/
+
+.blob:nth-child(1) {
+  width: 45vmax;
+  height: 45vmax;
+  background-color: #3b82f6; /* A nice, vibrant blue */
+  top: -20vh;
+  left: -20vw;
+  animation: move1 25s infinite alternate;
+}
+
+.blob:nth-child(2) {
+  width: 35vmax;
+  height: 35vmax;
+  background-color: #22c55e; /* A bright, modern green */
+  bottom: -10vh;
+  right: -15vw;
+  animation: move2 28s infinite alternate-reverse;
+}
+
+.blob:nth-child(3) {
+  width: 30vmax;
+  height: 30vmax;
+  background-color: #06b6d4; /* A cool cyan/teal */
+  top: 20vh;
+  left: 25vw;
+  animation: move1 32s infinite alternate;
+}
+
+/* Two different keyframe animations for more varied movement */
+@keyframes move1 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  to {
+    transform: translate(40vw, 30vh) rotate(180deg);
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+}
+
+@keyframes move2 {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  to {
+    transform: translate(-30vw, -40vh) rotate(270deg);
+    border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%;
+  }
+}
