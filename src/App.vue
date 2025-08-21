@@ -21,7 +21,6 @@ import NavBar from "@/components/NavBar.vue";
         </a>
         <div class="font-bold uppercase text-xl">Page name</div>
       </div>
-      }
     </div>
 
     <div class="p-4 flex flex-col h-full">
