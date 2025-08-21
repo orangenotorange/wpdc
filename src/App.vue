@@ -1,5 +1,19 @@
 <script setup lang="ts">
 import NavBar from "@/components/NavBar.vue";
+import { supabase } from './lib/supabase-client'
+import { onMounted, ref } from 'vue'
+
+const events = ref([])
+
+async function getEvents() {
+  const { data } = await supabase.from('events').select()
+  events.value = data
+  console.log(events.value)
+}
+
+onMounted(() => {
+  getEvents()
+})
 </script>
 
 <template>
@@ -11,22 +25,19 @@ import NavBar from "@/components/NavBar.vue";
   </div>
 
   <div class="flex flex-col justify-between h-dvh relative z-10 text-slate-200">
-<!--    <app-page-header> </app-page-header>-->
-
     <div class="px-8 py-4">
-<!--      @if (pageName() !== 'Home') {-->
+
       <div class="flex gap-10 items-center justify-between">
         <a class="flex items-center" href="/">
 
         </a>
-        <div class="font-bold uppercase text-xl">Page name</div>
+        <div class="font-bold uppercase text-xl"> {{ $route.name }}</div>
       </div>
     </div>
 
-    <div class="p-4 flex flex-col h-full">
-
-    </div>
-<!--    <app-login></app-login>-->
+    <main class="p-4 flex flex-col h-full">
+      <RouterView />
+    </main>
     <NavBar></NavBar>
 
   </div>

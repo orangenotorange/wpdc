@@ -6,9 +6,9 @@ import MembersView from "@/features/MembersView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-      { path: '/', component: HomeView },
-      { path: '/members', component: MembersView },
-      { path: '/events', component: EventsView },
+      { path: '/', name: 'Home', component: HomeView },
+      { path: '/members', name: 'Members', component: MembersView },
+      { path: '/events', name: 'Events', component: EventsView },
   ],
 })
 
