@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "npm:@heroicons/vue@^2.2.0": "2.2.0_vue@3.5.18__typescript@5.8.3_typescript@5.8.3",
     "npm:@supabase/supabase-js@^2.55.0": "2.55.0",
     "npm:@tailwindcss/forms@~0.5.10": "0.5.10_tailwindcss@4.1.12",
     "npm:@tailwindcss/vite@^4.1.12": "4.1.12_vite@7.1.3__@types+node@22.17.2__picomatch@4.0.3_@types+node@22.17.2",
@@ -12,6 +13,7 @@
     "npm:@vue/tsconfig@0.7": "0.7.0_typescript@5.8.3_vue@3.5.18__typescript@5.8.3",
     "npm:jsdom@^26.1.0": "26.1.0",
     "npm:npm-run-all2@^8.0.4": "8.0.4",
+    "npm:pinia@^3.0.3": "3.0.3_typescript@5.8.3_vue@3.5.18__typescript@5.8.3",
     "npm:tailwindcss@^4.1.12": "4.1.12",
     "npm:typescript@5.8": "5.8.3",
     "npm:vite-plugin-vue-devtools@8": "8.0.0_vite@7.1.3__@types+node@22.17.2__picomatch@4.0.3_vue@3.5.18__typescript@5.8.3_@types+node@22.17.2_typescript@5.8.3",
@@ -441,6 +443,12 @@
       "integrity": "sha512-PPOl1mi6lpLNQxnGoyAfschAodRFYXJ+9fs6WHXz7CSWKbOqiMZsubC+BQsVKuul+3vKLuwTHsS2c2y9EoKwxQ==",
       "os": ["win32"],
       "cpu": ["x64"]
+    },
+    "@heroicons/vue@2.2.0_vue@3.5.18__typescript@5.8.3_typescript@5.8.3": {
+      "integrity": "sha512-G3dbSxoeEKqbi/DFalhRxJU4mTXJn7GwZ7ae8NuEQzd1bqdd0jAbdaBZlHPcvPD2xI1iGzNVB4k20Un2AguYPw==",
+      "dependencies": [
+        "vue"
+      ]
     },
     "@isaacs/cliui@8.0.2": {
       "integrity": "sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==",
@@ -995,11 +1003,17 @@
     "@vue/devtools-api@6.6.4": {
       "integrity": "sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g=="
     },
+    "@vue/devtools-api@7.7.7": {
+      "integrity": "sha512-lwOnNBH2e7x1fIIbVT7yF5D+YWhqELm55/4ZKf45R9T8r9dE2AIOy8HKjfqzGsoTHFbWbr337O4E0A0QADnjBg==",
+      "dependencies": [
+        "@vue/devtools-kit@7.7.7"
+      ]
+    },
     "@vue/devtools-core@8.0.0_vue@3.5.18__typescript@5.8.3_vite@7.1.3__@types+node@22.17.2__picomatch@4.0.3_typescript@5.8.3_@types+node@22.17.2": {
       "integrity": "sha512-5bPtF0jAFnaGs4C/4+3vGRR5U+cf6Y8UWK0nJflutEDGepHxl5L9JRaPdHQYCUgrzUaf4cY4waNBEEGXrfcs3A==",
       "dependencies": [
-        "@vue/devtools-kit",
-        "@vue/devtools-shared",
+        "@vue/devtools-kit@8.0.0",
+        "@vue/devtools-shared@8.0.0",
         "mitt",
         "nanoid@5.1.5",
         "pathe",
@@ -1007,16 +1021,34 @@
         "vue"
       ]
     },
-    "@vue/devtools-kit@8.0.0": {
-      "integrity": "sha512-b11OeQODkE0bctdT0RhL684pEV2DPXJ80bjpywVCbFn1PxuL3bmMPDoJKjbMnnoWbrnUYXYzFfmMWBZAMhORkQ==",
+    "@vue/devtools-kit@7.7.7": {
+      "integrity": "sha512-wgoZtxcTta65cnZ1Q6MbAfePVFxfM+gq0saaeytoph7nEa7yMXoi6sCPy4ufO111B9msnw0VOWjPEFCXuAKRHA==",
       "dependencies": [
-        "@vue/devtools-shared",
+        "@vue/devtools-shared@7.7.7",
         "birpc",
         "hookable",
         "mitt",
         "perfect-debounce",
         "speakingurl",
         "superjson"
+      ]
+    },
+    "@vue/devtools-kit@8.0.0": {
+      "integrity": "sha512-b11OeQODkE0bctdT0RhL684pEV2DPXJ80bjpywVCbFn1PxuL3bmMPDoJKjbMnnoWbrnUYXYzFfmMWBZAMhORkQ==",
+      "dependencies": [
+        "@vue/devtools-shared@8.0.0",
+        "birpc",
+        "hookable",
+        "mitt",
+        "perfect-debounce",
+        "speakingurl",
+        "superjson"
+      ]
+    },
+    "@vue/devtools-shared@7.7.7": {
+      "integrity": "sha512-+udSj47aRl5aKb0memBvcUG9koarqnxNM5yjuREvqwK6T3ap4mn3Zqqc17QrBFTqSMjr3HK1cvStEZpMDpfdyw==",
+      "dependencies": [
+        "rfdc"
       ]
     },
     "@vue/devtools-shared@8.0.0": {
@@ -1801,6 +1833,17 @@
       "integrity": "sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g==",
       "bin": true
     },
+    "pinia@3.0.3_typescript@5.8.3_vue@3.5.18__typescript@5.8.3": {
+      "integrity": "sha512-ttXO/InUULUXkMHpTdp9Fj4hLpD/2AoJdmAbAeW2yu1iy1k+pkFekQXw5VpC0/5p51IOR/jDaDRfRWRnMMsGOA==",
+      "dependencies": [
+        "@vue/devtools-api@7.7.7",
+        "typescript",
+        "vue"
+      ],
+      "optionalPeers": [
+        "typescript"
+      ]
+    },
     "postcss@8.5.6": {
       "integrity": "sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==",
       "dependencies": [
@@ -2111,8 +2154,8 @@
       "integrity": "sha512-9bWQig8UMu3nPbxX86NJv56aelpFYoBHxB5+pxuQz3pa3Tajc1ezRidj/0dnADA4/UHuVIfwIVYHOvMXYcPshg==",
       "dependencies": [
         "@vue/devtools-core",
-        "@vue/devtools-kit",
-        "@vue/devtools-shared",
+        "@vue/devtools-kit@8.0.0",
+        "@vue/devtools-shared@8.0.0",
         "execa",
         "sirv",
         "vite",
@@ -2198,7 +2241,7 @@
     "vue-router@4.5.1_vue@3.5.18__typescript@5.8.3_typescript@5.8.3": {
       "integrity": "sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==",
       "dependencies": [
-        "@vue/devtools-api",
+        "@vue/devtools-api@6.6.4",
         "vue"
       ]
     },
@@ -2326,6 +2369,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@heroicons/vue@^2.2.0",
         "npm:@supabase/supabase-js@^2.55.0",
         "npm:@tailwindcss/forms@~0.5.10",
         "npm:@tailwindcss/vite@^4.1.12",
@@ -2337,6 +2381,7 @@
         "npm:@vue/tsconfig@0.7",
         "npm:jsdom@^26.1.0",
         "npm:npm-run-all2@^8.0.4",
+        "npm:pinia@^3.0.3",
         "npm:tailwindcss@^4.1.12",
         "npm:typescript@5.8",
         "npm:vite-plugin-vue-devtools@8",

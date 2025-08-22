@@ -1,18 +1,26 @@
 <script setup lang="ts">
 import NavBar from "@/components/NavBar.vue";
-import { supabase } from './lib/supabase-client'
-import { onMounted, ref } from 'vue'
+import { supabase } from './services/supabase-client.ts'
+import { onMounted, provide } from 'vue'
+import { useSessionStore } from './services/session.store.ts'
+import { EventsService } from "@/services/events.service.ts";
+import {MembersService} from "@/services/members.service.ts";
 
-const events = ref([])
+const sessionStore = useSessionStore();
 
-async function getEvents() {
-  const { data } = await supabase.from('events').select()
-  events.value = data
-  console.log(events.value)
-}
+provide('eventsService', new EventsService())
+provide("membersService", new MembersService())
 
-onMounted(() => {
-  getEvents()
+
+onMounted(async () => {
+  //const session =  localStorage.setItem('session', JSON.stringify(data.session))
+  const { data } = await supabase.auth.getSession()
+  console.log(data)
+  sessionStore.setSession(data.session)
+
+  supabase.auth.onAuthStateChange((_, _session) => {
+    sessionStore.setSession(_session)
+  })
 })
 </script>
 
@@ -25,14 +33,14 @@ onMounted(() => {
   </div>
 
   <div class="flex flex-col justify-between h-dvh relative z-10 text-slate-200">
-    <div class="px-8 py-4">
+    <div class="px-8 pb-4">
 
-      <div class="flex gap-10 items-center justify-between">
-        <a class="flex items-center" href="/">
+<!--      <div class="flex gap-10 items-center justify-between">-->
+<!--        <a class="flex items-center" href="/">-->
 
-        </a>
-        <div class="font-bold uppercase text-xl"> {{ $route.name }}</div>
-      </div>
+<!--        </a>-->
+<!--        <div class="font-bold text-xl"> {{ $route.name }}</div>-->
+<!--      </div>-->
     </div>
 
     <main class="p-4 flex flex-col h-full">
