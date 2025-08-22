@@ -4,6 +4,11 @@ export class EventsService {
 
    list = async () => {
         const { data } = await supabase.from('events').select()
-        return data;
+        return data.map((event: any) => {
+            return {
+                ...event,
+                datetime: new Date(event.datetime)
+            }
+        })
     }
 }

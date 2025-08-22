@@ -33,21 +33,10 @@ onMounted(async () => {
   </div>
 
   <div class="flex flex-col justify-between h-dvh relative z-10 text-slate-200">
-    <div class="px-8 pb-4">
-
-<!--      <div class="flex gap-10 items-center justify-between">-->
-<!--        <a class="flex items-center" href="/">-->
-
-<!--        </a>-->
-<!--        <div class="font-bold text-xl"> {{ $route.name }}</div>-->
-<!--      </div>-->
-    </div>
-
     <main class="p-4 flex flex-col h-full">
       <RouterView />
     </main>
     <NavBar></NavBar>
-
   </div>
 
 </template>
