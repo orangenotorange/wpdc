@@ -11,6 +11,7 @@
     "npm:@vitejs/plugin-vue@^6.0.1": "6.0.1_vite@7.1.3__@types+node@22.17.2__picomatch@4.0.3_vue@3.5.18__typescript@5.8.3_@types+node@22.17.2_typescript@5.8.3",
     "npm:@vue/test-utils@^2.4.6": "2.4.6",
     "npm:@vue/tsconfig@0.7": "0.7.0_typescript@5.8.3_vue@3.5.18__typescript@5.8.3",
+    "npm:@vuepic/vue-datepicker@^11.0.2": "11.0.2_vue@3.5.18__typescript@5.8.3_typescript@5.8.3",
     "npm:jsdom@^26.1.0": "26.1.0",
     "npm:npm-run-all2@^8.0.4": "8.0.4",
     "npm:pinia@^3.0.3": "3.0.3_typescript@5.8.3_vue@3.5.18__typescript@5.8.3",
@@ -1125,6 +1126,13 @@
         "vue"
       ]
     },
+    "@vuepic/vue-datepicker@11.0.2_vue@3.5.18__typescript@5.8.3_typescript@5.8.3": {
+      "integrity": "sha512-uHh78mVBXCEjam1uVfTzZ/HkyDwut/H6b2djSN9YTF+l/EA+XONfdCnOVSi1g+qVGSy65DcQAwyBNidAssnudQ==",
+      "dependencies": [
+        "date-fns",
+        "vue"
+      ]
+    },
     "abbrev@2.0.0": {
       "integrity": "sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ=="
     },
@@ -1257,6 +1265,9 @@
         "whatwg-mimetype",
         "whatwg-url@14.2.0"
       ]
+    },
+    "date-fns@4.1.0": {
+      "integrity": "sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg=="
     },
     "de-indent@1.0.2": {
       "integrity": "sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg=="
@@ -2379,6 +2390,7 @@
         "npm:@vitejs/plugin-vue@^6.0.1",
         "npm:@vue/test-utils@^2.4.6",
         "npm:@vue/tsconfig@0.7",
+        "npm:@vuepic/vue-datepicker@^11.0.2",
         "npm:jsdom@^26.1.0",
         "npm:npm-run-all2@^8.0.4",
         "npm:pinia@^3.0.3",

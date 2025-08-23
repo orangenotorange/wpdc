@@ -9,7 +9,7 @@ export const useSessionStore = defineStore('session',() => {
 
     const setSession = (newSession: Session) => {
         session.value = newSession
-        user.value = newSession.user
+        user.value = newSession?.user
     }
 
     return { user, session, setSession }

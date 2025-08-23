@@ -37,3 +37,18 @@ npm run build
 ```sh
 npm run test:unit
 ```
+
+### TODO 
+
+add events
+list members
+add members
+edit member with phone number
+rsvp for events
+text members who rsvp
+
+reoccurring events
+max member count
+wait list
+
+
