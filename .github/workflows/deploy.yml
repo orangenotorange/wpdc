@@ -23,16 +23,11 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
       - name: Install step
         run: "deno install"
 
       - name: Build step
-        run: "deno run build"
+        run: "deno run build --allow-env"
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
