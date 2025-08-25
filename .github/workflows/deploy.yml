@@ -27,7 +27,7 @@ jobs:
         run: "deno install"
 
       - name: Use Variable
-        run: echo "${{ env.VITE_SUPABASE_URL }}"
+        run: echo "${{toJson(env)}} - ${{ secrets.VITE_SUPABASE_URL }}"
 
       - name: Build step
         run: "npm run build"
