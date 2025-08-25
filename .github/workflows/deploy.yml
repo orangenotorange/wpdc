@@ -27,7 +27,7 @@ jobs:
         run: "deno install"
 
       - name: Build step
-        run: "deno run build --allow-env"
+        run: "npm run build"
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
