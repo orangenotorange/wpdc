@@ -15,12 +15,16 @@ provide("membersService", new MembersService())
 
 onMounted(async () => {
   const { data } = await supabase.auth.getSession()
-  sessionStore.setSession(data.session)
+  if(data.session) {
+    sessionStore.setSession(data.session)
+  }
 
   // TODO get the member and make sure he's approved.
 
   supabase.auth.onAuthStateChange((_, _session) => {
-    sessionStore.setSession(_session)
+    if(_session){
+      sessionStore.setSession(_session)
+    }
   })
 })
 </script>

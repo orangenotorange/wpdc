@@ -15,7 +15,7 @@ export class EventsService {
            .select().gt('datetime', new Date().toISOString())
         if (!data) return []
 
-        return data.map((event: any) => {
+        return data.map((event: Event) => {
             return {
                 ...event,
                 datetime: new Date(event.datetime)
@@ -25,7 +25,8 @@ export class EventsService {
 
     list = async () => {
         const { data } = await supabase.from('events').select().order('datetime', { ascending: false })
-        return data.map((event: any) => {
+        if (!data) { return [] }
+        return data.map((event: Event) => {
             return {
                 ...event,
                 datetime: new Date(event.datetime)
@@ -35,6 +36,9 @@ export class EventsService {
 
     upsert  = async (event: Event) => {
         const { data, error } = await supabase.from('events').upsert(event).select()
+        if (error) {
+            console.error(error)
+        }
         return data
     }
 }
