@@ -30,8 +30,8 @@ async function getProfile() {
   }
 }
 
-onMounted(() => {
-  getProfile()
+onMounted(async () => {
+  await getProfile()
 })
 </script>
 

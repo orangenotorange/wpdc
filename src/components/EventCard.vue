@@ -4,7 +4,7 @@ const { event } = defineProps(['event'])
 
 <template>
 <div class="bg-slate-300 opacity-70 rounded-md text-slate-900">
-  <div class="bg-slate-600 rounded-t-md p-4 font-bold flex justify-between w-full">
+  <div class="bg-slate-300 rounded-t-md px-4 py-2 font-bold flex justify-between w-full">
     <span>
     {{event.name}}
     </span>
@@ -13,7 +13,7 @@ const { event } = defineProps(['event'])
     </span>
 
   </div>
-  <div class="p-4 flex flex-col gap-2">
+  <div class="px-4 flex flex-col gap-2">
     <div class="flex justify-between">
       <span class="font-bold">{{event.location}}</span>
     </div>
