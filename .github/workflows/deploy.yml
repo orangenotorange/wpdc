@@ -10,7 +10,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
-
+    env:
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
     permissions:
       id-token: write # Needed for auth with Deno Deploy
       contents: read # Needed to clone the repository
@@ -28,15 +30,10 @@ jobs:
         run: "deno install"
 
       - name: Use Variable
-        run: echo "${{toJson(env)}} - ${{ secrets.VITE_SUPABASE_URL }}"
-        env:
-          VITE_SUPABASE_URL: ${{ env.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: echo "${{ secrets.VITE_SUPABASE_URL }}"
+
       - name: Build step
         run: "npm run build"
-        env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
