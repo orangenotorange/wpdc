@@ -5,6 +5,7 @@ import { onMounted, provide } from 'vue'
 import { useSessionStore } from './services/session.store.ts'
 import { EventsService } from "@/services/events.service.ts";
 import {MembersService} from "@/services/members.service.ts";
+import AppBar from "@/components/AppBar.vue";
 
 const sessionStore = useSessionStore();
 
@@ -13,10 +14,10 @@ provide("membersService", new MembersService())
 
 
 onMounted(async () => {
-  //const session =  localStorage.setItem('session', JSON.stringify(data.session))
   const { data } = await supabase.auth.getSession()
-  console.log(data)
   sessionStore.setSession(data.session)
+
+  // TODO get the member and make sure he's approved.
 
   supabase.auth.onAuthStateChange((_, _session) => {
     sessionStore.setSession(_session)
@@ -33,10 +34,12 @@ onMounted(async () => {
   </div>
 
   <div class="flex flex-col justify-between h-dvh relative z-10 text-slate-200">
-    <main class="p-4 flex flex-col h-full">
+    <AppBar></AppBar>
+    <main class="p-4 flex flex-col overflow-y-auto flex-grow">
       <RouterView />
     </main>
     <NavBar></NavBar>
+
   </div>
 
 </template>

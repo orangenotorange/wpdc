@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import { useSessionStore } from "@/services/session.store.ts";
 import { inject, onMounted, ref } from "vue";
 import { PlusIcon } from "@heroicons/vue/16/solid";
-import EventCard from "@/features/events/components/EventCard.vue";
+import EventCard from "@/components/EventCard.vue";
 import AddEventCard from "@/features/events/components/AddEventCard.vue";
 
 const sessionStore = useSessionStore();
@@ -34,7 +34,7 @@ const onAddEventClose = async (isSave: boolean) => {
     <PlusIcon class="size-8 stroke-2" @click="isEditMode = true"></PlusIcon>
   </button>
 </div>
-<div class="my-4 flex flex-col gap-4 overflow-y-auto h-6/10">
+<div class="my-4 flex flex-col gap-4 overflow-y-auto">
   <div v-if="isEditMode" class="w-full">
     <AddEventCard  @close="onAddEventClose"></AddEventCard>
   </div>
